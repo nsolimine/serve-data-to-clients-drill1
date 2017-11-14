@@ -25,7 +25,7 @@ const data = [{
     numberOfStudents: 29
 }];
 
-app.get("/", function(request, response){
+app.get("/", cors(), function(request, response){
   response.json({data});
 });
 
@@ -38,7 +38,7 @@ function getID(data, id){
   return null;
 }
 
-app.get("/:id", function(request, response){
+app.get("/:id", cors(), function(request, response){
   var idPull = getID(data, request.params.id);
   if (!idPull){
     response.status = 404;
