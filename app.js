@@ -51,7 +51,4 @@ app.get("/:id", function(request, response){
   response.json({data: idPull});
 });
 
-
-
 app.listen(4000);
-console.log("I hear you Nick, you look very handsome today...btw, Example app listening on port 4000!")
