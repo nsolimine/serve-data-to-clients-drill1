@@ -25,30 +25,34 @@ const data = [{
     numberOfStudents: 29
 }];
 
-app.get("/", cors(), function(request, response){
-  response.json({data});
+app.get("/", cors(), function (request, response) {
+    response.json({
+        data
+    });
 });
 
-function getID(data, id){
-  for (let i = 0; i < data.length; i++){
-    if (data[i].id == id){
-      return data[i];
+function getID(data, id) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id == id) {
+            return data[i];
+        }
     }
-  }
-  return null;
+    return null;
 }
 
-app.get("/:id", cors(), function(request, response){
-  var idPull = getID(data, request.params.id);
-  if (!idPull){
-    response.status = 404;
+app.get("/:id", cors(), function (request, response) {
+    var idPull = getID(data, request.params.id);
+    if (!idPull) {
+        response.status = 404;
+        response.json({
+            error: {
+                message: "No record found!"
+            }
+        });
+    }
     response.json({
-      error: {
-        message: "No record found!"
-      }
+        data: idPull
     });
-  }
-  response.json({data: idPull});
 });
 
 app.listen(4000);
