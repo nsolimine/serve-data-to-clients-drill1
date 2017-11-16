@@ -43,8 +43,7 @@ function getID(data, id) {
 app.get("/:id", cors(), function (request, response) {
     var idPull = getID(data, request.params.id);
     if (!idPull) {
-        response.status = 404;
-        response.json({
+        response.status(404).json({
             error: {
                 message: "No record found!"
             }
