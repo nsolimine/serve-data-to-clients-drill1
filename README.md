@@ -1,5 +1,5 @@
 ## URL
-https://dashboard.heroku.com/apps/serve-data-to-clients-drill1
+https://serve-data-to-clients-drill1.herokuapp.com/
 
 ## Instructions
 
