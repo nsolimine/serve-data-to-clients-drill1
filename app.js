@@ -25,24 +25,24 @@ const data = [{
     numberOfStudents: 29
 }];
 
-app.get("/", cors(), function (request, response) {
+app.get("/", cors(), function (request, response){
     response.json({
         data
     });
 });
 
-function getID(data, id) {
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].id == id) {
+function getID(data, id){
+    for (let i = 0; i < data.length; i++){
+        if (data[i].id == id){
             return data[i];
         }
     }
     return null;
 }
 
-app.get("/:id", cors(), function (request, response) {
+app.get("/:id", cors(), function (request, response){
     var idPull = getID(data, request.params.id);
-    if (!idPull) {
+    if (!idPull){
         response.status(404).json({
             error: {
                 message: "No record found!"
